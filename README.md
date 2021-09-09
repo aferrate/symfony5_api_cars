@@ -1,7 +1,7 @@
 # Sample API project with Symfony 5 and Docker
 ### Install
 
-set your db url (assuming you use mysql on port 3306 and user and pass is root):
+set your db url on .env file inside cars folder (assuming you use mysql on port 3306 and user and pass is root):
 ```
 DATABASE_URL="mysql://root:root@mysql:3306/<your-db-name>"
 ```
@@ -76,7 +76,7 @@ Example json
 ```
 http://localhost/api/v1/car/update/<id-to-update>
 PUT
-Example json, can be less parameters
+Example json, can have less parameters
 {
     "mark" : "test api22",
     "model" : "test api22",
