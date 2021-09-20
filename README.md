@@ -6,6 +6,16 @@ set your db url on .env file inside cars folder (assuming you use mysql on port 
 DATABASE_URL="mysql://root:root@mysql:3306/<your-db-name>"
 ```
 
+create database:
+```
+ bin/console doctrine:database:create
+```
+
+migrate entities:
+```
+ bin/console doctrine:migrations:migrate
+```
+
 run docker:
 ```
  cd laradock
