@@ -16,6 +16,11 @@ migrate entities:
  bin/console doctrine:migrations:migrate
 ```
 
+load fixtures:
+```
+ bin/console doctrine:fixtures:load
+```
+
 run docker:
 ```
  cd laradock
@@ -51,27 +56,52 @@ call localhost in your browser:
 
 ### Endpoints
 
+login:
+```
+http://localhost/api/login_check
+GET
+{
+    "username": "test@test.com",
+    "password": "test"
+}
+```
+
+refresh token (you get refresh_token when you access login endpoint):
+```
+http://localhost/api/token/refresh
+GET
+{
+    "refresh_token":
+    "2ac2669f7c9acf14ac2d500e46fbd98fa76608649028efdd223dee94d28b2990ac01a3df4f38fbdc71d1b88cc6e7b478bed4025abd63a0a024e0e271400fecb9"
+}
+```
+
 ```
 http://localhost/api/v1/cars
 GET
+set bearer token with login endpoint token received
 no params
 ```
 ```
 http://localhost/api/v1/cars/enabled
 GET
+set bearer token with login endpoint token received
 no params
 ```
 ```
 http://localhost/api/v1/car/slug/<slug-to-search>
 GET
+set bearer token with login endpoint token received
 ```
 ```
 http://localhost/api/v1/car/id/<id-to-search>
 GET
+set bearer token with login endpoint token received
 ```
 ```
 http://localhost/api/v1/car/create
 POST
+set bearer token with login endpoint token received
 Example json
 {
     "mark" : "test api",
@@ -86,6 +116,7 @@ Example json
 ```
 http://localhost/api/v1/car/update/<id-to-update>
 PUT
+set bearer token with login endpoint token received
 Example json, can have less parameters
 {
     "mark" : "test api22",
@@ -100,4 +131,5 @@ Example json, can have less parameters
 ```
 http://localhost/api/v1/car/delete/<id-to-delete>
 DELETE
+set bearer token with login endpoint token received
 ```
