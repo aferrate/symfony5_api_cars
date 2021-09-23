@@ -1,4 +1,4 @@
-# Sample API project with Symfony 5 and Docker
+# Sample API project with Symfony 5 with JWT and Docker
 ### Install
 
 set your db url on .env file inside cars folder (assuming you use mysql on port 3306 and user and pass is root):
@@ -79,7 +79,7 @@ http://localhost/api/token/refresh
 GET
 {
     "refresh_token":
-    "2ac2669f7c9acf14ac2d500e46fbd98fa76608649028efdd223dee94d28b2990ac01a3df4f38fbdc71d1b88cc6e7b478bed4025abd63a0a024e0e271400fecb9"
+    "<your-refresh-token>"
 }
 ```
 
