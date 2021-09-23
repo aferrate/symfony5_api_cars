@@ -24,10 +24,12 @@ final class CarRepository implements CarRepositoryInterface
         return $this->entityManager->getRepository(Car::class)->findOneBy(['slug' => $slug]);
     }
 
-    public function save(Car $car): void
+    public function save(Car $car): int
     {
         $this->entityManager->persist($car);
         $this->entityManager->flush();
+
+        return $car->getId();
     }
 
     public function delete(Car $car): void

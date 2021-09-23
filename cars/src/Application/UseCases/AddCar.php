@@ -37,8 +37,12 @@ class AddCar
         $car->setEnabled(false);
         $car->setCreatedAt(DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')));
 
-        $this->carRepository->save($car);
+        $id = $this->carRepository->save($car);
 
-        return ['status' => 'car created!'];
+        return [
+            'status' => 'car created!',
+            'id' => $id,
+            'slug' => $car->getSlug()
+        ];
     }
 }

@@ -28,13 +28,20 @@ run docker:
 ```
  docker-compose up -d nginx mysql phpmyadmin
 ```
+
 get into the container:
 ```
  docker-compose exec workspace bash
 ```
+
 install dependencies:
 ```
  composer install
+```
+
+run tests:
+```
+ phpunit
 ```
 
 
