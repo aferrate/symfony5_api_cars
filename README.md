@@ -1,47 +1,46 @@
 # Sample API project with Symfony 5 with JWT and Docker
 ### Install
 
-set your db url on .env file inside cars folder (assuming you use mysql on port 3306 and user and pass is root):
+run docker:
 ```
-DATABASE_URL="mysql://root:root@mysql:3306/<your-db-name>"
+ cd laradock
+ docker-compose up -d nginx mysql phpmyadmin
 ```
 
 create database:
 ```
+ docker-compose exec workspace bash
  bin/console doctrine:database:create
 ```
 
 migrate entities:
 ```
+ docker-compose exec workspace bash
  bin/console doctrine:migrations:migrate
 ```
 
 load fixtures:
 ```
- bin/console doctrine:fixtures:load
-```
-
-run docker:
-```
- cd laradock
-```
-```
- docker-compose up -d nginx mysql phpmyadmin
-```
-
-get into the container:
-```
  docker-compose exec workspace bash
+ bin/console doctrine:fixtures:load
 ```
 
 install dependencies:
 ```
+ docker-compose exec workspace bash
  composer install
 ```
 
-run tests:
+
+### Run tests:
 ```
  phpunit
+```
+
+
+### Get into the container:
+```
+ docker-compose exec workspace bash
 ```
 
 
