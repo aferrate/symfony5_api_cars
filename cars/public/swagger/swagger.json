@@ -1,0 +1,159 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API cars symfony5",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api/v1",
+            "description": "cars API"
+        }
+    ],
+    "paths": {
+        "car/id/{id}": {
+            "get": {
+                "operationId": "2cc94922f7d82e8e54f2e8ef71a0ae0f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of car",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get car by slug",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Car"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "car/slug/{slug}": {
+            "get": {
+                "operationId": "ac5b941a7a056bb345d9ecdd3b8100a5",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "slug of car",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "get car by slug",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Car"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cars/enabled": {
+            "get": {
+                "operationId": "f5cd083ebafcc6f32932daadbd6f78c2",
+                "responses": {
+                    "200": {
+                        "description": "get all cars enabled",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Car"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cars": {
+            "get": {
+                "operationId": "0048c1cd930f27b11322106d1bdaae8a",
+                "responses": {
+                    "200": {
+                        "description": "get all cars",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Car"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Car": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "mark": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "imageFilename": {
+                        "type": "string"
+                    },
+                    "year": {
+                        "type": "integer"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "nullable": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
