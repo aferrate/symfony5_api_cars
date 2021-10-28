@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Swagger;
 
 use OpenApi\Annotations as OA;
 
@@ -44,11 +44,6 @@ class Car
      * @var string
      */
     public $city;
-    /**
-     * @OA\Property(type="string")
-     * @var string
-     */
-    public $imageFilename;
     /**
      * @OA\Property(type="integer")
      * @var int

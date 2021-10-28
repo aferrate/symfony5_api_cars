@@ -17,17 +17,26 @@ use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 
 /**
- * Class PetController
+ * Class CarController
  * @package App\Controller
  *
  * @Route(path="/api/v1/")
+* @OA\SecurityScheme(
+*      securityScheme="bearerAuth",
+*      in="header",
+*      name="bearerAuth",
+*      type="http",
+*      scheme="bearer",
+*      bearerFormat="JWT",
+* )
  */
 class CarController
 {
     /**
      * @Route("car/id/{id}", name="get_car_id", methods={"GET"})
      * @OA\Get(
-     *      path="car/id/{id}",
+     *      path="/car/id/{id}",
+     *      security={{"bearerAuth":{}}}, 
      *      @OA\Parameter(
      *          name="id",
      *          in="path",
@@ -52,7 +61,8 @@ class CarController
     /**
      * @Route("car/slug/{slug}", name="get_car_slug", methods={"GET"})
      * @OA\Get(
-     *      path="car/slug/{slug}",
+     *      path="/car/slug/{slug}",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="slug",
      *          in="path",
@@ -77,7 +87,8 @@ class CarController
     /**
      * @Route("cars/enabled", name="get_all_cars_enabled", methods={"GET"})
      * @OA\Get(
-     *      path="cars/enabled",
+     *      path="/cars/enabled",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response="200",
      *          description="get all cars enabled",
@@ -95,7 +106,8 @@ class CarController
     /**
      * @Route("cars", name="get_all_cars", methods={"GET"})
      * @OA\Get(
-     *      path="cars",
+     *      path="/cars",
+     *      security={{"bearerAuth":{}}},
      *      @OA\Response(
      *          response="200",
      *          description="get all cars",
@@ -112,6 +124,16 @@ class CarController
 
     /**
      * @Route("car/create", name="add_car", methods={"POST"})
+     * @OA\Post(
+     *      path="/car/create",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\RequestBody(ref="#/components/requestBodies/InsertCar"),
+     *      @OA\Response(
+     *          response="200",
+     *          description="inser car",
+     *          @OA\JsonContent(type="string", description="response of insering car")
+     *      )
+     * )
      */
     public function addCar(Request $request, AddCar $addCar): JsonResponse
     {
@@ -124,6 +146,23 @@ class CarController
 
     /**
      * @Route("car/update/{id}", name="update_car", methods={"PUT"})
+     * @OA\Put(
+     *      path="/car/update/{id}",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          in="path",
+     *          description="id of car",
+     *          required=true,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\RequestBody(ref="#/components/requestBodies/UpdateCar"),
+     *      @OA\Response(
+     *          response="200",
+     *          description="update car",
+     *          @OA\JsonContent(type="string", description="response of updating car")
+     *      )
+     * )
      */
     public function updateCar(int $id, Request $request, UpdateCar $updateCar): JsonResponse
     {
@@ -136,6 +175,22 @@ class CarController
 
     /**
      * @Route("car/delete/{id}", name="delete_car", methods={"DELETE"})
+     * @OA\Delete(
+     *      path="/car/delete/{id}",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          in="path",
+     *          description="id of car",
+     *          required=true,
+     *          @OA\Schema(type="integer")
+     *      ),
+     *      @OA\Response(
+     *          response="200",
+     *          description="update car",
+     *          @OA\JsonContent(type="string", description="response of deleting car")
+     *      )
+     * )
      */
     public function deleteCar(int $id, DeleteCar $deleteCar): JsonResponse
     {

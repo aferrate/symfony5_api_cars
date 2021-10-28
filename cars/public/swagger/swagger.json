@@ -6,14 +6,14 @@
     },
     "servers": [
         {
-            "url": "http://localhost/api/v1",
+            "url": "http://localhost/api/v1/",
             "description": "cars API"
         }
     ],
     "paths": {
-        "car/id/{id}": {
+        "/car/id/{id}": {
             "get": {
-                "operationId": "2cc94922f7d82e8e54f2e8ef71a0ae0f",
+                "operationId": "222678f7de9a20a73dc57d2adbb8eee1",
                 "parameters": [
                     {
                         "name": "id",
@@ -36,12 +36,17 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "car/slug/{slug}": {
+        "/car/slug/{slug}": {
             "get": {
-                "operationId": "ac5b941a7a056bb345d9ecdd3b8100a5",
+                "operationId": "5036d76cba6ce500e58e45ebe5391732",
                 "parameters": [
                     {
                         "name": "slug",
@@ -64,12 +69,17 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "cars/enabled": {
+        "/cars/enabled": {
             "get": {
-                "operationId": "f5cd083ebafcc6f32932daadbd6f78c2",
+                "operationId": "06c8f9170b9d604a5a3e3fd62447e03f",
                 "responses": {
                     "200": {
                         "description": "get all cars enabled",
@@ -84,12 +94,17 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
-        "cars": {
+        "/cars": {
             "get": {
-                "operationId": "0048c1cd930f27b11322106d1bdaae8a",
+                "operationId": "0fee92465870c691a4d9493e0146b91f",
                 "responses": {
                     "200": {
                         "description": "get all cars",
@@ -104,7 +119,109 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/car/create": {
+            "post": {
+                "operationId": "fd6d19a56b25ea9ec825e5a517af7d37",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/InsertCar"
+                },
+                "responses": {
+                    "200": {
+                        "description": "inser car",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "response of insering car",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/car/update/{id}": {
+            "put": {
+                "operationId": "b363cec8ba03caaa726d3122105d19c5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of car",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/UpdateCar"
+                },
+                "responses": {
+                    "200": {
+                        "description": "update car",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "response of updating car",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/car/delete/{id}": {
+            "delete": {
+                "operationId": "bf1dfba8f932bce11561e50692331fbc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of car",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "update car",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "response of deleting car",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
@@ -133,9 +250,6 @@
                     "city": {
                         "type": "string"
                     },
-                    "imageFilename": {
-                        "type": "string"
-                    },
                     "year": {
                         "type": "integer"
                     },
@@ -153,6 +267,100 @@
                     }
                 },
                 "type": "object"
+            }
+        },
+        "requestBodies": {
+            "InsertCar": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "required": [
+                                "mark",
+                                "model",
+                                "description",
+                                "slug",
+                                "country",
+                                "city",
+                                "year",
+                                "enabled"
+                            ],
+                            "properties": {
+                                "mark": {
+                                    "type": "string"
+                                },
+                                "model": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "slug": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "year": {
+                                    "type": "integer"
+                                },
+                                "enabled": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "UpdateCar": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "mark": {
+                                    "type": "string"
+                                },
+                                "model": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "slug": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "year": {
+                                    "type": "integer"
+                                },
+                                "enabled": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Class CarController",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
             }
         }
     }

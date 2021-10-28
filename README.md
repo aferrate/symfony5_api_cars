@@ -44,6 +44,15 @@ install dependencies:
 ```
 
 
+### Generate swagger.json
+
+generate swagger.json:
+```
+ docker-compose exec workspace bash
+ ./vendor/bin/openapi --format json --output ./public/swagger/swagger.json ./src/Swagger/swagger.php src
+```
+
+
 ### Start application
 
 access phpmyadmin:
