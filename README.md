@@ -68,6 +68,9 @@ credentials:
 call localhost in your browser:
 - [http://localhost](http://localhost/)
 
+access swagger ui:
+- [http://localhost/swagger](http://localhost/swagger)
+
 
 ### Endpoints
 
