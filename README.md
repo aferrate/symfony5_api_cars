@@ -13,6 +13,12 @@ docker-compose exec workspace bash
 composer install
 ```
 
+generate keypair:
+```
+docker-compose exec workspace bash
+php bin/console lexik:jwt:generate-keypair
+```
+
 create database:
 ```
 docker-compose exec workspace bash
