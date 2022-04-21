@@ -3,44 +3,44 @@
 
 run docker:
 ```
- cd laradock
- docker-compose up -d nginx mysql phpmyadmin
-```
-
-create database:
-```
- docker-compose exec workspace bash
- bin/console doctrine:database:create
-```
-
-migrate entities:
-```
- docker-compose exec workspace bash
- bin/console doctrine:migrations:migrate
-```
-
-load fixtures:
-```
- docker-compose exec workspace bash
- bin/console doctrine:fixtures:load
+cd laradock
+docker-compose up -d nginx mysql phpmyadmin
 ```
 
 install dependencies:
 ```
- docker-compose exec workspace bash
- composer install
+docker-compose exec workspace bash
+composer install
+```
+
+create database:
+```
+docker-compose exec workspace bash
+bin/console doctrine:database:create
+```
+
+migrate entities:
+```
+docker-compose exec workspace bash
+bin/console doctrine:migrations:migrate
+```
+
+load fixtures:
+```
+docker-compose exec workspace bash
+bin/console doctrine:fixtures:load
 ```
 
 
 ### Run tests:
 ```
- phpunit
+phpunit
 ```
 
 
 ### Get into the container:
 ```
- docker-compose exec workspace bash
+docker-compose exec workspace bash
 ```
 
 
@@ -48,8 +48,8 @@ install dependencies:
 
 generate swagger.json:
 ```
- docker-compose exec workspace bash
- ./vendor/bin/openapi --format json --output ./public/swagger/swagger.json ./src/Swagger/swagger.php src
+docker-compose exec workspace bash
+./vendor/bin/openapi --format json --output ./public/swagger/swagger.json ./src/Swagger/swagger.php src
 ```
 
 
@@ -60,9 +60,9 @@ access phpmyadmin:
 
 credentials:
 ```
- server mysql
- user root
- password root
+server mysql
+user root
+password root
 ```
 
 call localhost in your browser:
@@ -94,6 +94,7 @@ GET
 }
 ```
 
+cars:
 ```
 http://localhost/api/v1/cars
 GET
