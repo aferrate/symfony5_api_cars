@@ -1,0 +1,25 @@
+Query:
+    type: object
+    config:
+        description: ''
+        fields:
+            allCars:
+                type: '[Car]'
+                resolve: "@=resolver('all_cars', [args])"
+            allCarsEnabled:
+                type: '[Car]'
+                resolve: "@=resolver('all_cars_enabled', [args])"
+            getCarFromId:
+                type: 'Car'
+                args:
+                    id:
+                        description: 'Resolves using car id'
+                        type: 'Int'
+                resolve: "@=resolver('car_from_id', [args])"
+            getCarFromSlug:
+                type: 'Car'
+                args:
+                    id:
+                        description: 'Resolves using car slug'
+                        type: 'String'
+                resolve: "@=resolver('car_from_slug', [args])"

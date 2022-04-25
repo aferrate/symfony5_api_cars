@@ -1,0 +1,35 @@
+Car:
+  type: object
+  config:
+    description: "A car"
+    fields:
+      id:
+        type: "Int!"
+        description: "The ID of the car."
+      mark:
+        type: "String!"
+        description: "mark of the car"
+      model:
+        type: "String!"
+        description: "model of the car"
+      description:
+        type: "String!"
+        description: "description of the car"
+      slug:
+        type: "String!"
+        description: "slug of the car"
+      country:
+        type: "String!"
+        description: "country of the car"
+      city:
+        type: "String!"
+        description: "city of the car"
+      imageFilename:
+        type: "String!"
+        description: "imageFilename of the car"
+      year:
+        type: "Int!"
+        description: "year of the car"
+      enabled:
+        type: "Boolean!"
+        description: "enabled of the car"

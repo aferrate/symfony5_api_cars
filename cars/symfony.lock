@@ -148,6 +148,32 @@
     "nikic/php-parser": {
         "version": "v4.12.0"
     },
+    "overblog/graphiql-bundle": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "96d185c63491cd15c1570f6243ec1808f4462970"
+        },
+        "files": [
+            "config/routes/dev/graphiql.yaml"
+        ]
+    },
+    "overblog/graphql-bundle": {
+        "version": "0.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.12",
+            "ref": "b122f3bfcfc0706c617a74afa8510af4799810f6"
+        },
+        "files": [
+            "config/graphql/types/.gitignore",
+            "config/packages/graphql.yaml",
+            "config/routes/graphql.yaml"
+        ]
+    },
     "phar-io/manifest": {
         "version": "2.0.3"
     },
@@ -318,6 +344,9 @@
     "symfony/event-dispatcher-contracts": {
         "version": "v2.4.0"
     },
+    "symfony/expression-language": {
+        "version": "v5.3.14"
+    },
     "symfony/filesystem": {
         "version": "v5.3.4"
     },
@@ -372,6 +401,12 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/options-resolver": {
+        "version": "v5.3.14"
+    },
+    "symfony/password-hasher": {
+        "version": "v5.3.7"
     },
     "symfony/phpunit-bridge": {
         "version": "5.3",
@@ -446,6 +481,9 @@
             "config/packages/security.yaml"
         ]
     },
+    "symfony/security-core": {
+        "version": "v5.3.7"
+    },
     "symfony/security-csrf": {
         "version": "v5.3.4"
     },
@@ -466,6 +504,22 @@
     },
     "symfony/translation-contracts": {
         "version": "v2.4.0"
+    },
+    "symfony/twig-bridge": {
+        "version": "v5.3.14"
+    },
+    "symfony/twig-bundle": {
+        "version": "5.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "5.3",
+            "ref": "ce42aa769cc2edfd9246e5647a3a967afe6387ca"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
     },
     "symfony/validator": {
         "version": "4.3",
@@ -492,8 +546,14 @@
     "theseer/tokenizer": {
         "version": "1.2.1"
     },
+    "twig/twig": {
+        "version": "v3.3.10"
+    },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "webonyx/graphql-php": {
+        "version": "v0.13.9"
     },
     "zircote/swagger-php": {
         "version": "3.2.3"
