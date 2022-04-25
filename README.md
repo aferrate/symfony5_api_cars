@@ -1,4 +1,4 @@
-# Sample API project with Symfony 5 with JWT and Docker
+# Sample API project with Symfony 5 with JWT, GraphQL and Docker
 ### Install
 
 run docker:
@@ -157,4 +157,30 @@ Example json, can have less parameters
 http://localhost/api/v1/car/delete/<id-to-delete>
 DELETE
 set bearer token with login endpoint token received
+```
+
+
+### GraphQL
+```
+{
+  allArticles {id, mark, model, description, slug, country, city, imageFilename, year, enabled}
+}
+```
+
+```
+{
+  allCarsEnabled {id, mark, model, description, slug, country, city, imageFilename, year, enabled}
+}
+```
+
+```
+{
+  getCarFromId(id: 1) {id, mark, model, description, slug, country, city, imageFilename, year, enabled}
+}
+```
+
+```
+{
+  getCarFromSlug(slug: "123fvfg5") {id, mark, model, description, slug, country, city, imageFilename, year, enabled}
+}
 ```
